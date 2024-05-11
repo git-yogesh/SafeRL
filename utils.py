@@ -67,7 +67,7 @@ def visualize(env, algorithm=None, video_name="test"):
 # Evaluate Policy
 def evaluate_policy(actor, environment, num_episodes=100, progress=True):
     '''
-        Returns the mean trajectory reward of rolling out `actor` on `environment
+        Returns the mean trajectory reward of rolling out actor on `environment
 
         Parameters
         - actor: PPOActor instance, defined in Part 1
@@ -75,18 +75,21 @@ def evaluate_policy(actor, environment, num_episodes=100, progress=True):
         - num_episodes: total number of trajectories to collect and average over
     '''
     total_rew = 0
-
+    rewards = []
+    episode_rew = 0
     iterate = (trange(num_episodes) if progress else range(num_episodes))
     for _ in iterate:
         obs = environment.reset()
         done = False
-
+        episode_rew = 0
         while not done:
             action = actor.select_action(obs)
 
             next_obs, reward, done, info = environment.step(action)
             total_rew += reward
-
+            episode_rew += reward
             obs = next_obs
             # done = done.any() if isinstance(done, np.ndarray) else done
-    return (total_rew / num_episodes).item()
+
+        rewards.append(episode_rew)
+    return (total_rew / num_episodes).item(), rewards

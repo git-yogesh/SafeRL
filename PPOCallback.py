@@ -62,7 +62,7 @@ class PPOCallback(BaseCallback):
             return True
 
         if self.num_timesteps % self.save_freq == 0 and self.num_timesteps != 0:
-            mean_reward = evaluate_policy(self.actor, environment=self.eval_env, num_episodes=20)
+            mean_reward, _ = evaluate_policy(self.actor, environment=self.eval_env, num_episodes=20)
             print(f'evaluating {self.num_timesteps=}, {mean_reward=}=======')
 
             self.eval_steps.append(self.num_timesteps)
