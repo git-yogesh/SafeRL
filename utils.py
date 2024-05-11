@@ -79,6 +79,8 @@ def evaluate_policy(actor, environment, num_episodes=100, progress=True):
     total_rew = 0
     rewards = []
     episode_rew = 0
+
+    safe_scores = []
     iterate = (trange(num_episodes) if progress else range(num_episodes))
     for _ in iterate:
         obs = environment.reset()
@@ -86,12 +88,12 @@ def evaluate_policy(actor, environment, num_episodes=100, progress=True):
         episode_rew = 0
         while not done:
             action = actor.select_action(obs)
-
             next_obs, reward, done, info = environment.step(action)
             total_rew += reward
             episode_rew += reward
             obs = next_obs
             # done = done.any() if isinstance(done, np.ndarray) else done
 
+        safe_scores.append(info[0].get("safety", 0))
         rewards.append(episode_rew)
-    return (total_rew / num_episodes).item(), rewards
+    return (total_rew / num_episodes).item(), safe_scores
