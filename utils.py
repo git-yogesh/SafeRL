@@ -46,6 +46,7 @@ def visualize(env, algorithm=None, video_name="test"):
 
     obs = env.reset()
 
+    total = 0
     for i in range(500):
         action = get_action(obs)
         res = env.step(action)
@@ -58,10 +59,11 @@ def visualize(env, algorithm=None, video_name="test"):
         im = im[:, :, ::-1]
 
         video.write(im)
+        total += reward
 
     video.release()
     env.close()
-    print(f"Video saved as {video_name}.mp4")
+    print(f"Video saved as {video_name}.mp4. Reward: {total}")
 
 
 # Evaluate Policy

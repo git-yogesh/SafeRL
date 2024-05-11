@@ -54,7 +54,7 @@ def plot_landing_path(points, a, x0, y0, score):
     plt.title('Landing Path and Parabolic Cone')
     plt.legend()
     plt.grid(True)
-    plt.xlim(x0 - 0.7, x0 + 0.7)
+    plt.xlim(-0.8, 0.8)
     plt.ylim(max(y_vals), min(y_vals))
     plt.gca().invert_yaxis()  # Invert y-axis to simulate descent
     plt.text(x0, 1.5, f'Score: {score:.2f}%', fontsize=12, verticalalignment='bottom', horizontalalignment='center')

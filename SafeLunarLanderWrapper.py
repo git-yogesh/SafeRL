@@ -41,7 +41,9 @@ class SafeLunarLanderWrapper(Wrapper):
 
         max_horizontal_distance = np.sqrt(a * vertical_distance)
 
-        if abs(x) <= max_horizontal_distance // 2:
+        #print("hri", y, abs(x), max_horizontal_distance/2)
+
+        if abs(x) <= max_horizontal_distance / 2:
             return 0
 
         else:
@@ -72,6 +74,7 @@ class SafeLunarLanderWrapper(Wrapper):
         x, y = observation[0], observation[1]
         self.safe_penalties.append(self.descent_path_landing_score(x, y))
         self.path.append((x, y))
+        # print(y, x, self.safe_penalties[-1], reward)
         reward += self.safe_penalties[-1]
         if done and self.debug:
             #print(self.safe_penalties)
