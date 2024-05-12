@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2023)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: neurips_2022.aux
+The style file: plain.bst
+Database file #1: references.bib
+Warning--to sort, need author or key in lunar_lander_gym
+You've used 2 entries,
+            2118 wiz_defined-function locations,
+            503 strings with 4205 characters,
+and the built_in function-call counts, 494 in all, are:
+= -- 38
+> -- 29
+< -- 0
++ -- 12
+- -- 10
+* -- 30
+:= -- 79
+add.period$ -- 3
+call.type$ -- 2
+change.case$ -- 11
+chr.to.int$ -- 0
+cite$ -- 3
+duplicate$ -- 14
+empty$ -- 46
+format.name$ -- 10
+if$ -- 103
+int.to.chr$ -- 0
+int.to.str$ -- 2
+missing$ -- 0
+newline$ -- 10
+num.names$ -- 2
+pop$ -- 21
+preamble$ -- 1
+purify$ -- 9
+quote$ -- 0
+skip$ -- 18
+stack$ -- 0
+substring$ -- 10
+swap$ -- 2
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 8
+warning$ -- 1
+while$ -- 2
+width$ -- 3
+write$ -- 15
+(There was 1 warning)

@@ -1,0 +1,10 @@
+\begin{thebibliography}{1}
+
+\bibitem{lunar_lander_gym}
+{Lunar Lander - Gym Documentation}.
+
+\bibitem{schulman2017proximal}
+John Schulman, Filip Wolski, Prafulla Dhariwal, Alec Radford, and Oleg Klimov.
+\newblock Proximal policy optimization algorithms, 2017.
+
+\end{thebibliography}
