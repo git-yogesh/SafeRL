@@ -20,8 +20,10 @@ class SafeLunarLanderWrapper(Wrapper):
         self.max_penalty = -10  # Maximum penalty to apply
 
     def score_landing_path(self, x0, y0):
+
         # The flags on the map are between -0.2 to 0.2
         if x0 > 0.2 or x0 < -0.2:
+            print("EXIT")
             return -100
 
         inside_parabola = 0
@@ -35,6 +37,8 @@ class SafeLunarLanderWrapper(Wrapper):
                 inside_parabola += 1
 
         score = (inside_parabola / total_points) * 100
+
+        print("SCORING", inside_parabola, total_points, score)
         return score
 
     def descent_path_landing_score(self, x, y):
@@ -106,5 +110,5 @@ class SafeLunarLanderWrapper(Wrapper):
             info["safety"] = self.score_landing_path(x, y)
         if done and self.debug:
             # print(self.safe_penalties)
-            safePara.plot_landing_path(self.path, 0.167, x, y, sum(self.safe_penalties))
+            safePara.plot_landing_path(self.path, 0.2, x, y, sum(self.safe_penalties))
         return observation, reward, done, _, info
